@@ -285,13 +285,13 @@ const totalCartPrice = cart.reduce((sum, item) => sum + item.price * item.quanti
             >
 
             {/* PRODUCT IMAGE */}
-              <div className="relative flex h-40 w-full items-center justify-center overflow-hidden bg-white/5 p-3 sm:h-64 sm:p-4">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#111925]">
 
                 {product.image ? (
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
                   />
                 ) : (
                   <div className="flex flex-col items-center justify-center text-gray-500">
