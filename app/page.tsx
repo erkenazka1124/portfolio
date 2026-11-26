@@ -276,7 +276,7 @@ const totalCartPrice = cart.reduce((sum, item) => sum + item.price * item.quanti
         </div>
 
         {/* PRODUCTS GRID */}
-        <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-7 lg:grid-cols-3 xl:grid-cols-4">
 
           {filteredProducts.map((product) => (
             <article
@@ -284,14 +284,14 @@ const totalCartPrice = cart.reduce((sum, item) => sum + item.price * item.quanti
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#111925] transition hover:border-cyan-400/50"
             >
 
-              {/* PRODUCT IMAGE */}
-              <div className="relative flex h-64 w-full items-center justify-center overflow-hidden bg-[#111925]">
+            {/* PRODUCT IMAGE */}
+              <div className="relative flex h-40 w-full items-center justify-center overflow-hidden bg-white/5 p-3 sm:h-64 sm:p-4">
 
                 {product.image ? (
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
                   />
                 ) : (
                   <div className="flex flex-col items-center justify-center text-gray-500">
@@ -301,41 +301,38 @@ const totalCartPrice = cart.reduce((sum, item) => sum + item.price * item.quanti
                 )}
 
               </div>
+{/* PRODUCT INFORMATION */}
+              <div className="flex flex-1 flex-col p-3 sm:p-4">
 
-              {/* PRODUCT INFORMATION */}
-              <div className="flex flex-1 flex-col p-4">
-
-             <div className="text-xs font-semibold text-cyan-400">
+                <div className="text-[11px] font-semibold text-cyan-400 sm:text-xs">
                   {product.category}
                 </div>
 
-                <h3 className="mt-2 text-lg font-bold text-white">
+                <h3 className="mt-1.5 line-clamp-2 text-sm font-bold text-white sm:mt-2 sm:text-lg">
                   {product.name}
                 </h3>
 
-            
-
                 {/* PRICE */}
-                <div className="mt-auto pt-5 text-2xl font-bold text-white">
+                <div className="mt-auto pt-3 text-base font-bold text-white sm:pt-5 sm:text-2xl">
                   {formatPrice(product.price)}
                 </div>
 
                 {/* DETAILS BUTTON */}
                 <button
                   onClick={() => setSelectedProduct(product.id)}
-                  className="mt-3 w-full rounded-xl bg-cyan-400 px-4 py-3 font-semibold text-slate-900 transition hover:bg-cyan-300"
+                  className="mt-2.5 w-full rounded-xl bg-cyan-400 px-2.5 py-2 text-xs font-semibold text-slate-900 transition hover:bg-cyan-300 sm:mt-3 sm:px-4 sm:py-3 sm:text-base"
                 >
                   Подробнее о товаре
                 </button>
 
-            {/* ORDER BUTTON */}
-<button
-  type="button"
-  onClick={() => addToCart(product)}
-  className="mt-2 w-full rounded-xl border border-cyan-400/50 bg-transparent px-4 py-2.5 font-semibold text-cyan-400 transition hover:bg-cyan-400/10"
->
-  В корзину
-</button>
+                {/* ORDER BUTTON */}
+                <button
+                  type="button"
+                  onClick={() => addToCart(product)}
+                  className="mt-1.5 w-full rounded-xl border border-cyan-400/50 bg-transparent px-2.5 py-2 text-xs font-semibold text-cyan-400 transition hover:bg-cyan-400/10 sm:mt-2 sm:px-4 sm:py-2.5 sm:text-base"
+                >
+                  В корзину
+                </button>
 
               </div>
             </article>
